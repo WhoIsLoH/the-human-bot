@@ -25,6 +25,12 @@ const pageDescription = description ?? settings.tagline;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <title>{pageTitle}</title>
+    <!-- Netlify Identity emails land on Site URL (/) with #*_token=...; Decap handlers live on /admin/ -->
+    <script is:inline>
+      if (/#(?:invite|recovery|confirmation)_token=/.test(window.location.hash)) {
+        window.location.replace('/admin/' + window.location.hash);
+      }
+    </script>
   </head>
   <body>
     <div class="site">

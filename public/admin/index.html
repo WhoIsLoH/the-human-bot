@@ -14,7 +14,10 @@
         window.netlifyIdentity.on('init', (user) => {
           if (!user) {
             window.netlifyIdentity.on('login', () => {
-              document.location.href = '/admin/';
+              // Stay on /admin/ after login (Identity may open from hash tokens)
+              if (!window.location.pathname.startsWith('/admin')) {
+                document.location.href = '/admin/';
+              }
             });
           }
         });
