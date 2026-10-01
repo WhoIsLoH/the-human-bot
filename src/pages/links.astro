@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const links = (await getCollection('links')).sort(
+  (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0)
+);
+---
+
+<BaseLayout title="Links" current="links" description="Links — The Human Bot">
+  <h2 class="page-heading">Links</h2>
+  <div class="links-list" id="stickers">
+    {
+      links.map((link) => (
+        <div class="link-item">
+          <a class="title" href={link.data.url} target="_blank" rel="noopener noreferrer">
+            {link.data.title}
+          </a>
+          {link.data.note && <p class="note">{link.data.note}</p>}
+        </div>
+      ))
+    }
+  </div>
+</BaseLayout>

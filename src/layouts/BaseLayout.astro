@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import settings from '../data/settings.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+  current?: 'home' | 'music' | 'links';
+}
+
+const { title, description, current = 'home' } = Astro.props;
+const pageTitle = title ? `${title} · ${settings.title}` : settings.title;
+const pageDescription = description ?? settings.tagline;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDescription} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>■</text></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header">
+        <h1 class="site-title">
+          <a href="/">THE{'\n'}HUMAN{'\n'}BOT</a>
+        </h1>
+        <nav class="nav" aria-label="Primary">
+          <a href="/" aria-current={current === 'home' ? 'page' : undefined}>Home</a>
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="/music" aria-current={current === 'music' ? 'page' : undefined}>Music</a>
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="/links" aria-current={current === 'links' ? 'page' : undefined}>Links</a>
+        </nav>
+      </header>
+      <main class="main">
+        <slot />
+      </main>
+      <footer class="site-footer">
+        © THE HUMAN BOT
+      </footer>
+    </div>
+  </body>
+</html>

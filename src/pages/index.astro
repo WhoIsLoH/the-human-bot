@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import settings from '../data/settings.json';
+
+const embedSrc = `https://www.youtube-nocookie.com/embed/${settings.featuredYoutubeId}?rel=0`;
+---
+
+<BaseLayout current="home">
+  <section class="video-block" aria-labelledby="featured-title">
+    <div class="video-frame">
+      <iframe
+        src={embedSrc}
+        title={settings.featuredVideoTitle}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+    <p id="featured-title" class="video-caption">{settings.featuredVideoTitle}</p>
+    <p class="tagline">{settings.tagline}</p>
+  </section>
+
+  <div class="cta-row">
+    <a class="outlined-btn" href={settings.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a class="outlined-btn" href={settings.social.youtube} target="_blank" rel="noopener noreferrer">YouTube</a>
+    <a class="outlined-btn" href={settings.social.stickers} target="_blank" rel="noopener noreferrer">Stickers</a>
+  </div>
+</BaseLayout>
