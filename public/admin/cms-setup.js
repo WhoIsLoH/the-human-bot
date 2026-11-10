@@ -1,4 +1,4 @@
-/* The Human Bot — personnalisation de l'admin Decap CMS
+/* The Human Bot - personnalisation de l'admin Decap CMS
  * - widget "notice" (encadré d'aide, n'enregistre rien)
  * - aperçus en direct au style du site (fond noir, typo pixel)
  */
@@ -51,7 +51,7 @@
       return h('a', { href: '#', 'aria-current': current === key ? 'page' : undefined }, label);
     }
     return h('div', { className: 'site' },
-      h('div', { className: 'preview-badge' }, 'APERÇU — ' + ({ home: 'Accueil', music: 'Page Music', links: 'Page Links' }[current])),
+      h('div', { className: 'preview-badge' }, 'APERÇU - ' + ({ home: 'Accueil', music: 'Page Music', links: 'Page Links' }[current])),
       h('header', { className: 'site-header' },
         h('h1', { className: 'site-title' }, h('a', { href: '#' }, 'THE\nHUMAN\nBOT')),
         h('nav', { className: 'nav' },

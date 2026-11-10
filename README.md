@@ -1,4 +1,4 @@
-# The Human Bot — site vitrine
+# The Human Bot - site vitrine
 
 Site minimaliste (fond noir, typo pixel) pour le projet musical **The Human Bot**.  
 Stack : **Astro** (TypeScript) + **Decap CMS** + prêt pour **Netlify**.
@@ -44,7 +44,7 @@ Les liens YouTube sont acceptés sous toutes les formes (`youtube.com/watch?v=�
 `/shorts/…`, `/live/…`, ou l’ID seul) : voir `src/lib/youtube.ts`. Les anciens champs
 `youtubeId` / `youtubeUrl` / `featuredYoutubeId` restent acceptés.
 
-## Utiliser l’admin — mode d’emploi (pour les musiciens)
+## Utiliser l’admin - mode d’emploi (pour les musiciens)
 
 1. Aller sur **https://the-human-bot.netlify.app/admin/** et se connecter (e-mail + mot de passe).
 2. À gauche, 4 rubriques :
@@ -65,7 +65,7 @@ Pas de workflow de validation : « Publier » met en ligne directement (chaque p
 
 Fichiers de l’admin : `public/admin/config.yml` (champs), `public/admin/cms-setup.js`
 (encadrés d’aide + aperçus), `public/admin/preview.css` (copie de `src/styles/global.css`
-pour les aperçus — à garder synchronisée si le design change).
+pour les aperçus - à garder synchronisée si le design change).
 
 ## Decap CMS (`/admin`)
 

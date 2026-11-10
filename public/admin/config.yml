@@ -1,4 +1,4 @@
-# Decap CMS — The Human Bot
+# Decap CMS - The Human Bot
 # Backend: Git Gateway + Netlify Identity (publication directe sur main, pas de workflow éditorial).
 # Edition en local sans login : voir README (local_backend + npx decap-server).
 
@@ -70,7 +70,7 @@ collections:
             allow_add: true
             add_to_top: false
             label_singular: bouton
-            summary: '{{fields.label}} — {{fields.url}}'
+            summary: '{{fields.label}} - {{fields.url}}'
             hint: "Les boutons en bas de la page d'accueil, dans cet ordre. « Ajouter bouton » pour en créer un, la croix × pour en supprimer, la poignée ═ en haut de chaque bouton pour changer l'ordre (glisser-déposer). Aucun bouton = la rangée disparaît."
             fields:
               - label: Texte du bouton
@@ -101,7 +101,7 @@ collections:
     format: frontmatter
     slug: '{{title}}'
     identifier_field: title
-    summary: "{{title}}{{featured | ternary(' ★ en avant', '')}} — {{date | date('DD/MM/YYYY')}}"
+    summary: "{{title}}{{featured | ternary(' ★ en avant', '')}} - {{date | date('DD/MM/YYYY')}}"
     sortable_fields: ['order', 'title', 'date']
     view_filters:
       - { label: 'Mis en avant', field: featured, pattern: true }
